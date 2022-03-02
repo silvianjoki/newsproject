@@ -1,0 +1,17 @@
+{% macro displayNewsList(news_list) %} 
+
+    % for news_item in news_list %>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="language">{{news.language}} </div>
+                <a href="{{news.url}}" target="blank"> </a>
+                <h5 class="card-title"> {{news.name}}</h5>
+                <p class="card-text"> {{news.description}} </p>
+                <br>
+                <a href="/news/ {{news.id}} " class="card-link">View article</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %} 
+    {% endmacro %}

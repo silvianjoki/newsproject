@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+{% block styles%}
+<link rel="stylesheet" href="{{url_for ('static', filename = 'css/articles.css')}} " type="text/css">
+{% endblock %} 
+
+
+{% block content %} 
+<div class="row">
+    <div class="header col-md-3">
+        <h1> The News Project</h1>
+        <h5> find an article here </h5>
+        <form class="form-group">
+            <input class="form-control mb-2" type="text" name="keyword_search" placeholder="search by keyword" aria-label="Search" required>
+            <button class="btn btn-sm btn-dark " value="Submit" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="col-md-9">
+        <h4 class="text-center"> Review articles here</h4>
+        <br>
+        <div class="articles">
+            {{macro.displayArticles(article)}}
+        </div>
+    </div>
+</div>
+{% endblock %}  
