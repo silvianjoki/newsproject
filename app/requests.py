@@ -1,5 +1,5 @@
 import urllib.request,json
-from app.models import news, articles
+from app.models import News, Articles
 
 apiKey = None
 base_url = None
@@ -12,9 +12,9 @@ def configure_request(app):
     article_base_url = app.config['ARTICLES_API_BASE_URL']
 
 
-def get_news():
+def get_news(category):
     '''function retrives json response from our api url'''
-    get_news_url = base_url.format(apiKey)
+    get_news_url = base_url.format(category,apiKey)
     
     with urllib.request.urlopen(get_news_url) as url:  
         get_news_data = url.read()
@@ -22,8 +22,8 @@ def get_news():
         
         news_results = None
         
-        if get_news_response['news']:   
-            news_results_list = get_news_response['news']  
+        if get_news_response['sources']:   
+            news_results_list = get_news_response['sources']  
             news_results = process_news(news_results_list)
             
     return news_results
@@ -46,7 +46,7 @@ def process_news(news_list):
         language = news_item.get('language')
         country = news_item.get('country')
         
-        news_object= news(id, name, description, url, category, language, country)
+        news_object= News(id, name, description, url, category, language, country)
         news_results.append(news_object)
     return news_results
 
@@ -77,6 +77,6 @@ def process_articles(articles_list):
         content = articles_item.get('content')
         
         if urlToImage:
-            articles_object = articles(author,title, url, urlToImage, publishedAt, content)
+            articles_object = Articles(author,title, url, urlToImage, publishedAt, content)
             articles_results.append(articles_object)
     return articles_results
