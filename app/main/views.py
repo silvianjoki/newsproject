@@ -1,3 +1,4 @@
+from turtle import title
 from flask import render_template
 from . import main
 from ..requests import get_news, get_articles
@@ -8,23 +9,31 @@ def index():
     '''
     returns index page and its information
     '''
-    general_news = get_news('general')
-    business_news = get_news('business')
-    technology_news = get_news('technology')
+    # general_news = get_news()
+    # business_news = get_news()
+    # technology_news = get_news()
     
-    title = 'Welcome to the news app.Review amazing topics'
-    return render_template('index.html', title = title, general_news = general_news, business_news = business_news, technology_news = technology_news)
+    sources = get_news()
+    
+    # title = 'Welcome to the news app.Review amazing topics'
+    data = {
+        'title': 'newsproject', 
+        'heading': 'news'
+    }
+    return render_template('index.html', context=data, sources = sources)
 
-@main.route('/news/id')
-def articles(source_id):
+@main.route('/news/<id>')
+def articles(id):
     '''
     Display articles based on source
     '''
-    articles_source = get_articles('id')
-    business_source = get_articles('business')
-    technology_source = get_articles('technology')
+    # articles_source = get_articles('id')
+    # business_source = get_articles('business')
+    # technology_source = get_articles('technology')
     
-    title = f'{source_id} Articles'
-    return render_template('articles.html', articles_source=articles_source, business_source= business_source, technology_source=technology_source)
+    all_articles = get_articles('id')
+    
+    
+    title = f'{id} Articles'
+    return render_template('articles.html', articles=all_articles )
 
-# returns articles and news

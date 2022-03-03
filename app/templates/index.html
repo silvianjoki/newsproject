@@ -1,14 +1,28 @@
 {% extends 'base.html' %} 
-{% import 'macros.html' %}
 
+<!-- { % import 'macros.html' as macro} -->
 
+<!-- {% block sources %}
+<div class="container">
+    <h1>Top News</h1>
+    {{ macro.displayNewsList(sources)}}
+</div>
+{% endblock %}  -->
 
-
-
-
-
-
-
-
-
+{% block content %}
+<!-- <h1> hello cat</h1> -->
+{% for source in sources %}
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="language">{{source.language}} </div>
+                <a href="{{source.url}}" target="blank"> </a>
+                <h5 class="card-title"> {{source.name}}</h5>
+                <p class="card-text"> {{source.description}} </p>
+                <br>
+                <a href="/news/{{source.id}} " class="card-link">View article</a>
+            </div>
+        </div>
+    </div>
+{% endfor %} 
 {% endblock %}

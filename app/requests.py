@@ -1,5 +1,5 @@
 import urllib.request,json
-from app.models import News, Articles
+from .models import News, Articles
 
 apiKey = None
 base_url = None
@@ -12,9 +12,9 @@ def configure_request(app):
     article_base_url = app.config['ARTICLES_API_BASE_URL']
 
 
-def get_news(category):
+def get_news():
     '''function retrives json response from our api url'''
-    get_news_url = base_url.format(category,apiKey)
+    get_news_url = base_url.format(apiKey)
     
     with urllib.request.urlopen(get_news_url) as url:  
         get_news_data = url.read()
@@ -37,7 +37,7 @@ def process_news(news_list):
     returns the news_results: objects
     '''
     news_results = []
-    for news_item in news_list:
+    for news_item in news_list: 
         id = news_item.get('id')
         name = news_item.get('name')
         description = news_item.get('description')
@@ -46,22 +46,23 @@ def process_news(news_list):
         language = news_item.get('language')
         country = news_item.get('country')
         
-        news_object= News(id, name, description, url, category, language, country)
-        news_results.append(news_object)
+        if url:
+            news_object= News(id, name, description, url, category, language, country)
+            news_results.append(news_object)
     return news_results
 
 def get_articles(id):
     '''
     function gets the json respon to a url request
     '''
-    get_articles_url = articles_base_url.format(id, apiKey)
+    get_articles_url = article_base_url.format(id, apiKey)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_details = url.read()
         get_articles_response = json.loads(get_articles_details)
         
         articles_results = None
         
-        if get_articles.response['articles']:
+        if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_articles(articles_results_list)
         return articles_results

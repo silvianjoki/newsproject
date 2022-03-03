@@ -1,4 +1,5 @@
-export NEWS_API_KEY='fafde69b9f5f470a859779fd3e0022ca'  
-export SECRET_KEY='^\xf2\x84\x9f\x1f\xe2JK\x1e\xbe\xe1\xe8\x13}\xf3\x08*\x1d\xa2\xb2\n\xb0\xbf\x97'
+export NEWS_API_KEY=71926a313772474da81a1fee4865251c 
+export SECRET_KEY=essentialism
 
-python3 manage.py
+python3 manage.py server
+
