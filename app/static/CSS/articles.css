@@ -1,0 +1,18 @@
+body {
+    background-color: aqua;
+}
+
+.card {
+    margin: 3%;
+    width: 21rem;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.card-header {
+    padding: 0.5rem;
+}
+
+.card-bottom {
+    display: flex;
+}
