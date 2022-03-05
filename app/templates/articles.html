@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="{{url_for ('static', filename = 'css/articles.css')}} " type="text/css">
 {% endblock %} 
 
-
 {% block content %} 
 <div class="row">
     <div class="header col-md-3">
@@ -29,7 +28,7 @@
                             <h5 class="card-title"> {{article.title}}</h5>
                             <p class="card-text"> {{article.description}} </p>
                             <br>
-                            <a href="/news/ {{source.id}} " class="card-link">View article</a>
+                            <a href="{{article.url}} " class="card-link">View article</a>
                         </div>
                     </div>
                 </div>

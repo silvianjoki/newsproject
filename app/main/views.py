@@ -14,6 +14,7 @@ def index():
     # technology_news = get_news()
     
     sources = get_news()
+   
     
     # title = 'Welcome to the news app.Review amazing topics'
     data = {
@@ -31,9 +32,9 @@ def articles(id):
     # business_source = get_articles('business')
     # technology_source = get_articles('technology')
     
-    all_articles = get_articles('id')
-    
-    
+    all_articles = get_articles(id)
+
+
     title = f'{id} Articles'
     return render_template('articles.html', articles=all_articles )
 

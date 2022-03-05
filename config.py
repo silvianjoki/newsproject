@@ -1,8 +1,5 @@
 import os
 
-
-
-
 class Config:
     '''
     Configuring the parent class-general
@@ -11,7 +8,6 @@ class Config:
     ARTICLES_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    
     
 class ProdConfig(Config):
     '''
