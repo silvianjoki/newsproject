@@ -1,39 +1,32 @@
 {% extends 'base.html' %}
-{% import 'macros.html' as macro%}
+<!-- {% import 'macros.html' as macro%} -->
 
 {% block styles%}
 <link rel="stylesheet" href="{{url_for ('static', filename = 'css/articles.css')}} " type="text/css">
 {% endblock %} 
 
 {% block content %} 
-<div class="row">
-    <div class="header col-md-3">
-        <h1> The News Project</h1>
-        <h5> find an article here </h5>
-        <form class="form-group">
-            <input class="form-control mb-2" type="text" name="keyword_search" placeholder="search by keyword" aria-label="Search" required>
-            <button class="btn btn-sm btn-dark " value="Submit" type="submit">Search</button>
-        </form>
-    </div>
-    <div class="col-md-9">
-        <h4 class="text-center"> Review articles here</h4>
-        <br>
-        <div class="articles">
-            {% for article in articles %}
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="author">{{article.author}} </div>
-                            <a href="{{article.url}}" target="blank"> </a>
-                            <h5 class="card-title"> {{article.title}}</h5>
-                            <p class="card-text"> {{article.description}} </p>
-                            <br>
-                            <a href="{{article.url}} " class="card-link">View article</a>
-                        </div>
+
+<div class="container-fluid">
+    <h4 class="text-center"> Review articles here</h4>
+    <br>
+    <div class="articles">
+        {% for article in articles %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{article.urlToImage}}" class="card-img-top img-responsive" alt="article image">
+                    <div class="card-body">
+                        <div class="author">{{article.author}} </div>
+                        <a href="{{article.url}}" target="blank"> </a>
+                        <h5 class="card-title"> {{article.title}}</h5>
+                        <p class="card-text"> {{article.description}} </p>
+                        <br>
+                        <a href="{{article.url}} " class="card-link">View article</a>
                     </div>
                 </div>
-            {% endfor %} 
-        </div>
+            </div>
+        {% endfor %} 
     </div>
 </div>
+
 {% endblock %}  

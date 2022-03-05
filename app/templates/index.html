@@ -1,16 +1,10 @@
 {% extends 'base.html' %} 
 
-<!-- { % import 'macros.html' as macro} -->
-
-<!-- {% block sources %}
-<div class="container">
-    <h1>Top News</h1>
-    {{ macro.displayNewsList(sources)}}
-</div>
-{% endblock %}  -->
+{% block styles%}
+<link rel="stylesheet" href="{{url_for ('static', filename = 'css/index.css')}} " type="text/css">
+{% endblock %} 
 
 {% block content %}
-<!-- <h1> hello cat</h1> -->
 {% for source in sources %}
     <div class="col-md-4">
         <div class="card">
@@ -26,3 +20,4 @@
     </div>
 {% endfor %} 
 {% endblock %}
+
