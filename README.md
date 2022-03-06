@@ -37,7 +37,7 @@ To run the application run the following commands:
 - git push heroku master
 
 ## Support and contact details 
-For further information or inquiry reach out to silvia.kamau@student@moringaschool.com
+For further information or inquiry reach out to silvia.kamau@student.moringaschool.com
 
 ## License 
 Project is licensed under MIT
