@@ -2,14 +2,14 @@
 
 {% block styles%}
     {{ super() }}
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/index.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/index.css') }}">
 {% endblock %}
 
 {% block content %}
-{% for source in sources %}
-<div class="cards">
+<div class="row">
+    {% for source in sources %}
     <div class="col-md-4">
-        <div class="card">
+        <div class="card  " >
             <div class="card-body">
                 <div class="language">{{source.language}} </div>
                 <a href="{{source.url}}" target="blank"> </a>
@@ -20,7 +20,8 @@
             </div>
         </div>
     </div>
+    {% endfor %} 
 </div>
-{% endfor %} 
+
 {% endblock %}
 
