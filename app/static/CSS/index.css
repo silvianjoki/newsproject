@@ -1,23 +1,26 @@
-.card {
+/* .card {
     margin: 3%;
     width: 21rem;
     transform: translateY(-2px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
     font-family: 'The Nautigal', cursive;
-}
+    border-radius: 7.5rem;
+    max-width: 15rem;
+} */
 
-.cards{
-    display: flex;
+/* .card-body {
     flex-direction: row;
     flex-wrap: wrap;
-    position: relative;
-
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    padding-bottom: 3%;
 }
 
 .card .card-title {
     font-size: 2.7rem;
     font-family: 'The Dongle', cursive;
     position: relative;
+    padding: 0.5 rem;
 }
 
 .language {
@@ -35,4 +38,4 @@
 
 .card-bottom {
     display: flex;
-}
+} */
