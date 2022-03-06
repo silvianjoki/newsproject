@@ -12,4 +12,32 @@ You can view stories based on categores of interest. Some of the featured catego
 
 Aside from this, you can access more information from unique websites by clicking the link that redirects to the website. 
 
+## Installation guide
+To run this installation install the following:
+* Python 3.9.10
+* Pip
+* Flask-Bootstrap
+* Flask- Script
 
+Clone the repository
+git clone https://github.com/silvianjoki/newsproject.git
+cd newsproject
+open your code editor 
+
+## Technologies Used
+* Python 3.9.10
+* HTML 
+* CSS
+* Procfile
+
+## Running the Application
+To run the application run the following commands:
+- git add .
+- git commit -m "deploy to heroku"
+- git push heroku master
+
+## Support and contact details 
+For further information or inquiry reach out to silvia.kamau@student@moringaschool.com
+
+## License 
+Project is licensed under MIT
